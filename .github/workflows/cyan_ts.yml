@@ -194,7 +194,7 @@ jobs:
 
       - name: Clone DontEatMyContent
         if: ${{ inputs.enable_demc }}
-        run: git clone --quiet --depth=1 --recurse-submodules https://github.com/therealFoxster/DontEatMyContent.git
+        run: git clone --quiet --depth=1 https://github.com/therealFoxster/DontEatMyContent.git
 
       - name: Build YouPiP
         if: ${{ inputs.enable_youpip }}
