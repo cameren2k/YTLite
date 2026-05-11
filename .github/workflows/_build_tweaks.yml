@@ -50,7 +50,7 @@ jobs:
 
     steps:
       - name: Install Dependencies
-        run: brew install make ldid dpkg
+        run: brew install make ldid dpkg meson ninja
 
       - name: Set PATH environment variable
         run: |
