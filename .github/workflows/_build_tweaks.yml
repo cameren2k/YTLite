@@ -165,7 +165,9 @@ jobs:
       - name: Build YTUHD
         if: ${{ inputs.enable_ytuhd }}
         run: |
-          cd YTUHD && make clean package DEBUG=0 SIDELOAD=1 FINALPACKAGE=1
+          cd YTUHD
+          git submodule update --init --recursive
+          make clean package DEBUG=0 SIDELOAD=1 FINALPACKAGE=1
           mv packages/*.deb ../ytuhd.deb
 
       - name: Build Return-YouTube-Dislikes
