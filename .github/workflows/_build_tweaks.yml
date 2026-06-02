@@ -166,7 +166,6 @@ jobs:
         if: ${{ inputs.enable_ytuhd }}
         run: |
           cd YTUHD
-          vendor/libundirect/install_to_theos.sh
           make clean package DEBUG=0 SIDELOAD=1 FINALPACKAGE=1
           mv packages/*.deb ../ytuhd.deb
 
