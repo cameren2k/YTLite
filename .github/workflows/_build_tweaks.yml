@@ -166,7 +166,6 @@ jobs:
         if: ${{ inputs.enable_ytuhd }}
         run: |
           cd YTUHD
-          git submodule update --remote 
           vendor/libundirect/install_to_theos.sh
           make libvpx && make dav1d
           make clean package DEBUG=0 SIDELOAD=1 FINALPACKAGE=1
