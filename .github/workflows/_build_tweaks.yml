@@ -130,7 +130,7 @@ jobs:
 
       - name: Clone YTUHD
         if: ${{ inputs.enable_ytuhd }}
-        run: git clone --quiet --recursive --depth=1 https://github.com/PoomSmart/YTUHD.git && git submodule update --remote
+        run: git clone --quiet --recursive --depth=1 https://github.com/PoomSmart/YTUHD.git
 
       - name: Clone Return-YouTube-Dislikes
         if: ${{ inputs.enable_ryd }}
@@ -166,6 +166,7 @@ jobs:
         if: ${{ inputs.enable_ytuhd }}
         run: |
           cd YTUHD
+          git submodule update --remote 
           vendor/libundirect/install_to_theos.sh
           make libvpx && make dav1d
           make clean package DEBUG=0 SIDELOAD=1 FINALPACKAGE=1
