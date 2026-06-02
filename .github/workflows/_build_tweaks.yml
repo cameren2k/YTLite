@@ -166,7 +166,7 @@ jobs:
         if: ${{ inputs.enable_ytuhd }}
         run: |
           cd YTUHD
-          make package DEBUG=0 SIDELOAD=1 FINALPACKAGE=1
+          make clean package DEBUG=0 SIDELOAD=1 FINALPACKAGE=1
           mv packages/*.deb ../ytuhd.deb
 
       - name: Build Return-YouTube-Dislikes
