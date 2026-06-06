@@ -111,7 +111,7 @@ jobs:
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
 
       - name: Cache Theos
-        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
+        if: ${{ inputs.enable_youpip || inputs.enable_ytuhd || inputs.enable_ytabc || inputs.enable_yq || inputs.enable_ryd || inputs.enable_demc }}
         id: theos
         uses: actions/cache@v4
         env:
