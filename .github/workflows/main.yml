@@ -263,6 +263,15 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
+      - name: Build YTABConfig
+        if: ${{ inputs.enable_ytabc }}
+        run: |
+          cd ${{ github.workspace }}/YTABConfig
+          make clean package DEBUG=0 FINALPACKAGE=1
+          mv packages/*.deb ${{ github.workspace }}/YTABConfig.deb
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
       - name: Build Return-YouTube-Dislikes
         if: ${{ inputs.enable_ryd }}
         run: |
