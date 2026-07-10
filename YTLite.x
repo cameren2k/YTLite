@@ -60,6 +60,17 @@ static UIImage *YTImageNamed(NSString *imageName) {
 }
 %end
 
+%hook YTReelContentModel
+
++ (YTReelModel *)makeContentModelForEntry:(id)entry {
+    YTReelModel *model = %orig;
+    if ([model respondsToSelector:@selector(videoType)] && model.videoType == 3)
+        return nil;
+    return model;
+}
+
+%end
+
 %hook YTSectionListViewController
 - (void)loadWithModel:(YTISectionListRenderer *)model {
     if (ytlBool(@"noAds")) {
